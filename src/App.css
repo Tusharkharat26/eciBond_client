@@ -1,0 +1,42 @@
+/*Company Funding css*/
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: #f4f4f9; /* Match the background color with index.css */
+  }
+  
+  .App-header {
+    font-size: calc(10px + 2vmin);
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+
+
+/* companiwise donation for party
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .chart-wrapper {
+    width: 100%;
+    max-width: 1200px; /* Adjust this based on your requirements */
+    /* margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+   /* */ 

@@ -1,0 +1,28 @@
+.chart-container {
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 600px; /* Maximum height for the container, adjust as necessary */
+  border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+  padding: 10px; /* Optional: Add some padding */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+  background-color: #fff; /* Optional: Add a background color */
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.chart-inner-container {
+  width: 100%;
+}
+
+
+  /* companiwise donation for party
+  .chart-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+  
+  .chart-inner-container {
+    min-width: 800px; /* Adjust this based on your requirements */
+  /* }
+   */ 

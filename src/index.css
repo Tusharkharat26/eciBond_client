@@ -1,0 +1,62 @@
+/*Company Funding*/
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  background-color: #f4f4f9; /* Light grey background for the entire app */
+  /* color: #333; /* Default text color */
+/* }
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.chart-container p {
+  text-align: center;
+  color: #888; /* Grey color for loading text */
+  /* font-size: 14px; /* Smaller font size for loading text */
+/* } */ 
+  
+
+/*Party Funding
+/* src/index.css */
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  .App {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .chart-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 0 auto;
+  }
+  
+  .chart-inner-container {
+    min-width: 1300px; /* Adjust this value based on your dataset */
+    /* height: 500px; /* Adjust the height as needed */
+  /* }*/ 
+
+/*compnay wise donation for party
+*/
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
