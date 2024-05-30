@@ -1,10 +1,14 @@
 .chart-container {
-    overflow-x: scroll;
-    width: 100%;
-    height: 500px;
-  }
-  
-  .chart-inner-container {
-    height: 100%;
-  }
-  
+  position: relative;
+  width: 130%;
+  max-width: 1200px;
+  margin: auto;
+  height: 500px; /* Adjust the height as needed */
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+.chart-inner-container {
+  position: relative;
+  height: 100%;
+  min-height: 400px; /* Minimum height for small datasets */
+}

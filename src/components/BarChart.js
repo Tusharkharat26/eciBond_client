@@ -151,55 +151,75 @@ ChartJS.register(BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend)
 
 const BarChart = () => {
   const [chartData, setChartData] = useState({});
+  const [filter, setFilter] = useState('');
+  const [allData, setAllData] = useState({});
 
   useEffect(() => {
     console.log('Fetching data from API');
     getCompanyFunding()
       .then(data => {
         console.log('Data fetched:', data);
-        const labels = Object.keys(data);
-        const fundingValues = Object.values(data);
-
-        setChartData({
-          labels: labels,
-          datasets: [
-            {
-              label: 'Company Funding',
-              data: fundingValues,
-              backgroundColor: 'rgba(75, 192, 192, 0.6)',
-              borderColor: 'rgba(75, 192, 192, 1)',
-              borderWidth: 1,
-            },
-          ],
-        });
+        setAllData(data);
+        updateChartData(data, '');
       })
       .catch(error => {
         console.log('Error fetching data:', error);
       });
   }, []);
 
-  console.log('Chart data:', chartData);
+  const updateChartData = (data, filter) => {
+    const filteredData = filter ? { [filter]: data[filter] } : data;
+    const labels = Object.keys(filteredData).map(name => (name.length > 15 ? name.slice(0, 15) + '...' : name));
+    const fundingValues = Object.values(filteredData);
+
+    setChartData({
+      labels: labels,
+      datasets: [
+        {
+          label: 'Company Funding',
+          data: fundingValues,
+          backgroundColor: fundingValues.map((_, index) => {
+            const greenValue = Math.floor((index / fundingValues.length) * 255);
+            const redValue = 255 - greenValue;
+            return `rgba(${redValue}, ${greenValue}, 0, 0.6)`;
+          }),
+          borderColor: fundingValues.map((_, index) => {
+            const greenValue = Math.floor((index / fundingValues.length) * 255);
+            const redValue = 255 - greenValue;
+            return `rgba(${redValue}, ${greenValue}, 0, 1)`;
+          }),
+          borderWidth: 1,
+        },
+      ],
+    });
+  };
+
+  const handleFilterChange = (event) => {
+    const selectedCompany = event.target.value;
+    setFilter(selectedCompany);
+    updateChartData(allData, selectedCompany);
+  };
 
   const options = {
-    indexAxis: 'y', // Display bars horizontally
+    indexAxis: 'y',
     responsive: true,
     maintainAspectRatio: false,
+    layout: {
+      padding: {
+        left: '10%',
+      },
+    },
     title: {
       text: 'Company Funding',
       display: true,
     },
     scales: {
       x: {
-        ticks: {
-          maxRotation: 90,
-          minRotation: 45,
-          autoSkip: false,
-        },
+        beginAtZero: true,
       },
       y: {
-        beginAtZero: true,
         ticks: {
-          autoSkip: false, // Ensure all labels are displayed
+          autoSkip: false,
         },
       },
     },
@@ -222,6 +242,16 @@ const BarChart = () => {
 
   return (
     <div className="chart-container">
+      <div className="filter-container">
+        <select value={filter} onChange={handleFilterChange}>
+          <option value="">All Companies</option>
+          {Object.keys(allData).map(company => (
+            <option key={company} value={company}>
+              {company.length > 15 ? company.slice(0, 15) + '...' : company}
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="chart-inner-container" style={{ height: `${Math.max(chartData.labels?.length * 20, 400)}px` }}>
         {chartData.labels && chartData.labels.length > 0 ? (
           <Bar data={chartData} options={options} />
