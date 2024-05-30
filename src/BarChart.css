@@ -1,7 +1,7 @@
 .chart-container {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: auto;
   height: 500px; /* Adjust the height as needed */
   overflow-x: auto; /* Enable horizontal scrolling if needed */
