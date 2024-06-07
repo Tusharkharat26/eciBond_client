@@ -1,0 +1,35 @@
+/* Bubble Chart */
+.bubble-chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  overflow-x: auto;
+}
+
+.bubble-chart-inner-container {
+  position: relative;
+  height: 100%;
+  min-height: 400px;
+}
+
+/* Bar Chart */
+.bar-chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  height: 500px;
+  overflow-x: auto;
+}
+
+.bar-chart-inner-container {
+  position: relative;
+  height: 100%;
+  min-height: 400px;
+}
+
+/* Dropdown */
+.dropdown-container {
+  margin: 20px;
+}

@@ -1,7 +1,7 @@
 // src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css'; // Adjust the path to point to src/index.css
+
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
