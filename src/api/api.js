@@ -5,6 +5,8 @@
 //     .catch(error => console.log('Error fetching company funding data:', error));
 // }
 
+import { BACKEND_URL } from "../constants";
+
 /*Party Funding Fetching*/
 // export function getpartyFunding() {
 //   return fetch('http://localhost:9898/api/partyFunding')
@@ -13,12 +15,12 @@
 // }
 //src/api/api.js
 export function getPartywiseDonation(partyName) {
-  return fetch(`http://localhost:9898/api/partywiseDonation?partyName=${encodeURIComponent(partyName)}`)
+  return fetch(`${BACKEND_URL}api/partywiseDonation?partyName=${encodeURIComponent(partyName)}`)
     .then(res => res.json())
     .catch(error => console.error('Error fetching party-wise donation data:', error));
 }
 export function getPartyList() {
-  return fetch('http://localhost:9898/api/partyList')
+  return fetch(`${BACKEND_URL}api/partyList`)
     .then(res => res.json())
     
     .catch(error => {

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { getPartywiseDonation } from '../../api/api';
 import 'chart.js/auto';
+import './ChartStyles.css'
 
 const PartyWiseDonation = ({ partyName }) => {
   const [chartData, setChartData] = useState({});
@@ -34,7 +35,7 @@ const PartyWiseDonation = ({ partyName }) => {
 
   const options = {
     indexAxis: 'y',
-    responsive: true,
+    responsive: false, // Turn off responsive resizing
     maintainAspectRatio: false,
     plugins: {
       legend: {
@@ -50,6 +51,19 @@ const PartyWiseDonation = ({ partyName }) => {
         }
       }
     },
+    scales: {
+      x: {
+        ticks: {
+          autoSkip: false, // Prevent skipping of labels
+        }
+      },
+      y: {
+        ticks: {
+          autoSkip: false, // Prevent skipping of labels
+        },
+        barThickness: 30, // Set a fixed bar thickness
+      }
+    },
     onClick: (event, elements) => {
       if (elements.length > 0) {
         const index = elements[0].index;
@@ -60,11 +74,13 @@ const PartyWiseDonation = ({ partyName }) => {
 
   return (
     <div className="bar-chart-container">
-      {chartData.labels && chartData.labels.length > 0 ? (
-        <Bar data={chartData} options={options} />
-      ) : (
-        <p>Loading chart data...</p>
-      )}
+      <div className="bar-chart-inner-container">
+        {chartData.labels && chartData.labels.length > 0 ? (
+          <Bar data={chartData} options={options} />
+        ) : (
+          <p>Loading chart data...</p>
+        )}
+      </div>
     </div>
   );
 };

@@ -16,10 +16,9 @@
 /* Bar Chart */
 .bar-chart-container {
   position: relative;
-  width: 100%;
-  max-width: 1200px;
+  width: 90vh;
   margin: auto;
-  height: 500px;
+  height: 100vh;
   overflow-x: auto;
 }
 
