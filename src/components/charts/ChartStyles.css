@@ -7,6 +7,11 @@
   overflow-x: auto;
 }
 
+.chart-section {
+  width: 100%;
+  margin-top: 20px;
+}
+
 .bubble-chart-inner-container {
   position: relative;
   height: 100%;

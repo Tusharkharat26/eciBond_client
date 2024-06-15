@@ -1,0 +1,97 @@
+/* General layout */
+.parent-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Chart section
+  .chart-section {
+    width: 100%;
+    margin-top: 20px;
+  } */
+  
+  /* Bubble Chart */
+  .bubble-chart-container {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Bar Chart */
+  .bar-chart-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    flex: 1; /* Make it flexible within its container */
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center; /* Center align items vertically */
+  }
+  
+  /* Bar Chart Inner Container */
+  .bar-chart-inner-container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Dropdown */
+  .dropdown-container {
+    margin: 20px;
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 1200px) {
+    .bubble-chart-container {
+      height: 400px; /* Adjust height for smaller screens */
+    }
+  
+    .bar-chart-container {
+      height: 400px; /* Adjust height for smaller screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .bubble-chart-container {
+      height: 300px; /* Adjust height for smaller screens */
+    }
+  
+    .bar-chart-container {
+      height: 300px; /* Adjust height for smaller screens */
+    }
+  
+    .parent-container {
+      padding: 10px;
+    }
+  
+    .dropdown-container {
+      margin: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .bubble-chart-container {
+      height: 250px; /* Adjust height for smaller screens */
+    }
+  
+    .bar-chart-container {
+      height: 250px; /* Adjust height for smaller screens */
+    }
+  
+    .parent-container {
+      padding: 5px;
+    }
+  
+    .dropdown-container {
+      margin: 5px;
+    }
+  }
+  
