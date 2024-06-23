@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Bubble } from 'react-chartjs-2';
-import { getPartywiseDonation } from '../../api/api';
+import { getPartyList} from '../../api/api';
 import PartyDropdown from './PartyDropdown';
 import 'chart.js/auto';
 import './ChartStyles.css';
@@ -10,7 +10,7 @@ const PartyBubbleChart = ({ onSelectParty }) => {
   const [selectedParty, setSelectedParty] = useState(null);
 
   useEffect(() => {
-    getPartywiseDonation().then(data => {
+    getPartyList().then(data => {
       const labels = Object.keys(data);
       const fundingValues = Object.values(data);
 
@@ -19,8 +19,15 @@ const PartyBubbleChart = ({ onSelectParty }) => {
         datasets: [
           {
             label: 'Party Donations',
-            data: fundingValues.map((value, index) => ({ x: index, y: value, r: value / 1000000 })),
-            backgroundColor: labels.map(() => `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.6)`),
+            data: fundingValues.map((value, index) => ({
+              x: Math.random() * 100,
+              y: Math.random() * 100,
+              r: Math.sqrt(value) / 1000,
+              party: labels[index]
+            })),
+            backgroundColor: labels.map(() =>
+              `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.6)`
+            ),
             borderColor: 'rgba(0, 0, 0, 0.1)',
             borderWidth: 1,
           },
@@ -49,7 +56,7 @@ const PartyBubbleChart = ({ onSelectParty }) => {
         callbacks: {
           label: (context) => {
             const partyName = chartData.labels[context.dataIndex];
-            const totalFunding = context.raw.y;
+            const totalFunding = context.raw.r * context.raw.r * 1000;
             return `${partyName}: ${totalFunding}`;
           }
         }
@@ -57,6 +64,10 @@ const PartyBubbleChart = ({ onSelectParty }) => {
     },
     onClick: (event, elements) => {
       handleBubbleClick(elements);
+    },
+    scales: {
+      x: { display: false },
+      y: { display: false }
     }
   };
 

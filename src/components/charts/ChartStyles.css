@@ -5,6 +5,7 @@
   max-width: 1200px;
   margin: auto;
   overflow-x: auto;
+  min-height: 500px; /* Ensure the bubble chart has enough height */
 }
 
 .chart-section {

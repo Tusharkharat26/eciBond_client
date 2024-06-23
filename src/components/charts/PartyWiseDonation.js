@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { getPartywiseDonation } from '../../api/api';
 import 'chart.js/auto';
-
 import './ChartStyles.css';
 
 const PartyWiseDonation = ({ partyName }) => {

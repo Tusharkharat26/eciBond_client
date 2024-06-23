@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getPartyList } from '../../api/api';
+import './ChartStyles.css';
 
 const PartyDropdown = ({ onPartySelect }) => {
   const [parties, setParties] = useState({});
@@ -17,12 +18,14 @@ const PartyDropdown = ({ onPartySelect }) => {
   }, []);
 
   return (
-    <select onChange={(e) => onPartySelect(e.target.value)}>
-      <option value="">All Parties</option>
-      {Object.keys(parties).map((party, index) => (
-        <option key={index} value={party}>{party}</option>
-      ))}
-    </select>
+    <div className="dropdown-container">
+      <select onChange={(e) => onPartySelect(e.target.value)}>
+        <option value="">All Parties</option>
+        {Object.keys(parties).map((party, index) => (
+          <option key={index} value={party}>{party}</option>
+        ))}
+      </select>
+    </div>
   );
 };
 
