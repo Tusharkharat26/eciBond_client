@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PartyWiseDonation from './PartyWiseDonation';
-import PartyBubbleChart from './PartyBubbleChart';
+//import PartyBubbleChart from './PartyBubbleChart';
+import PartyPieChart from './PartyPieChart';
 import './ChartStyles.css';
 
 const BubbleBarChartParent = () => {
@@ -13,8 +14,8 @@ const BubbleBarChartParent = () => {
   return (
     <div className="parent-container">
       <div className="chart-section">
-        <h2>Bubble Chart</h2>
-        <PartyBubbleChart onSelectParty={handlePartySelect} />
+        <h2>Pie Chart</h2>
+        <PartyPieChart onSelectParty={handlePartySelect} />
       </div>
       
       <div className="chart-section">

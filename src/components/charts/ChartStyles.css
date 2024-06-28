@@ -5,7 +5,15 @@
   max-width: 1200px;
   margin: auto;
   overflow-x: auto;
-  min-height: 500px; /* Ensure the bubble chart has enough height */
+  height: 500px; /* Ensure the bubble chart has enough height */
+}
+.pie-chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  overflow-x: auto;
+  height: 500px;
 }
 
 .chart-section {
@@ -22,17 +30,17 @@
 /* Bar Chart */
 .bar-chart-container {
   position: relative;
-  width: 100%;
-  max-width: 1200px;
+  /* width: 100%; */
+  width: 1200px; 
   margin: auto;
-  height: 500px;
-  overflow-x: auto;
+  height: 600px;
+  overflow-y: auto;
 }
 
-.bar-chart-inner-container {
-  position: relative;
-  height: 100%;
-  min-height: 400px;
+
+.bar-chart-container canvas {
+  /* width: 100% !important; */
+  height: auto !important;
 }
 
 /* Dropdown */
